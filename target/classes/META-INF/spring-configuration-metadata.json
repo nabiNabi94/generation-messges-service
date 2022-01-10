@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "user",
+      "type": "ru.digitalleague.backend.generationmessgesservice.model.User",
+      "sourceType": "ru.digitalleague.backend.generationmessgesservice.model.User"
+    }
+  ],
+  "properties": [
+    {
+      "name": "user.orders-items",
+      "type": "java.util.List<ru.digitalleague.backend.generationmessgesservice.model.OrdersItem>",
+      "sourceType": "ru.digitalleague.backend.generationmessgesservice.model.User"
+    },
+    {
+      "name": "user.user-first-name",
+      "type": "java.lang.String",
+      "sourceType": "ru.digitalleague.backend.generationmessgesservice.model.User"
+    },
+    {
+      "name": "user.user-last-name",
+      "type": "java.lang.String",
+      "sourceType": "ru.digitalleague.backend.generationmessgesservice.model.User"
+    }
+  ],
+  "hints": []
+}

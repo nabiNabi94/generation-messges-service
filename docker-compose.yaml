@@ -3,6 +3,8 @@ services:
   zookeeper:
     container_name: zookeeper
     image: confluentinc/cp-zookeeper:latest
+    networks:
+      - my-network
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -12,6 +14,8 @@ services:
   kafka:
     container_name: kafka
     image: confluentinc/cp-kafka:7.0.0
+    networks:
+      - my-network
     depends_on:
       - zookeeper
     ports:
@@ -38,9 +42,12 @@ services:
   generator:
     image: generationapp
     build:
-      context: ../code
+      context: https://github.com/nabiNabi94/generation-messges-service.git
       dockerfile: Dockerfile
+#    dockerfile: Dockerfile
     container_name: generator
+    networks:
+      - my-network
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/kafka
       SPRING_DATASOURCE_USERNAME: postgres
@@ -58,9 +65,11 @@ services:
   consumer:
     image: conasumerapp
     build:
-        context: ../code
+        context: https://github.com/nabiNabi94/consumer-message-service.git
         dockerfile: Dockerfile
     container_name: consumer
+    networks:
+      - my-network
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5000/kafka
       SPRING_DATASOURCE_USERNAME: postgres
@@ -78,6 +87,8 @@ services:
   db:
       image: postgres:12
       container_name: db
+      networks:
+        - my-network
       environment:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
@@ -90,3 +101,5 @@ services:
       restart: always
 volumes:
       pgdata:
+networks:
+  my-network: {}

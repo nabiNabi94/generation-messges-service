@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    consumer:
+      group-id: "my-gro"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    bootstrap-servers: ${kafka_bootstrap_servers:kafka:29092}
+
+User:
+  user-last-name: Oleg
+  user-first-name: Olegov
+  ordersItems:
+  - uuid: c3657907-53c3-4e74-bdfb-8d5f631ee7eb
+    cost: 4000
+    status: paid
+  - uuid: 419ad942-c552-4749-ad4a-40bde7a5a261
+    cost: 2400
+    status: send
+  - uuid: a1c9c996-7de6-4872-aeac-9bc795e3ac52
+    cost: 7000
+    status: created
+  - uuid: 14e5b69f-30c2-485e-8546-fa1c3994721e
+    cost: 1800
+    status: canceled
+  - uuid: 2253a62c-d25f-41c4-8bb5-8ea9f39b3bb9
+    cost: 2300
+    status: confirmed
+range:
+  time: 15000

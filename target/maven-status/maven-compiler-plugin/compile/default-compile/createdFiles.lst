@@ -1,0 +1,8 @@
+ru\digitalleague\backend\generationmessgesservice\GenerationMessgesServiceApplication.class
+ru\digitalleague\backend\generationmessgesservice\configuration\ConsumerFactories.class
+ru\digitalleague\backend\generationmessgesservice\services\KafkaConsumer.class
+ru\digitalleague\backend\generationmessgesservice\services\KafkaProducer.class
+ru\digitalleague\backend\generationmessgesservice\configuration\ProducerFactories.class
+META-INF\spring-configuration-metadata.json
+ru\digitalleague\backend\generationmessgesservice\model\User.class
+ru\digitalleague\backend\generationmessgesservice\model\OrdersItem.class
