@@ -2,6 +2,8 @@ package ru.digitalleague.backend.generationmessgesservice.services;
 
 import com.google.gson.Gson;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -23,6 +25,7 @@ public class KafkaProducer {
     private  Gson gson;
     private  KafkaTemplate<String, String> template;
     private User user;
+    private final Logger LOG = LogManager.getLogger(KafkaProducer.class);
 
     long random = new Random()
             .longs(50, 5000)
@@ -43,5 +46,7 @@ public class KafkaProducer {
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(TOPIC, "User", userToJson);
         record.headers().add("requestId", uuid.getBytes(StandardCharsets.UTF_8));
         ListenableFuture<SendResult<String, String>> user1 = this.template.send(record);
+        LOG.info("Sending massages to kafka topic={} partition={} key={} value={} headers={} timestamp={}"
+                ,record.topic(),record.partition(),record.key(),record.value(),record.headers(),record.timestamp());
     }
 }

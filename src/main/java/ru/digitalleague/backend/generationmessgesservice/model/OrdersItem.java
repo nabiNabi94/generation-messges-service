@@ -17,7 +17,7 @@ public class OrdersItem {
 
     private UUID uuid;
     private Long cost;
-    @Value("#{T(java.time.LocalDate).now()}")
+    @Value(value = "#{T(java.time.LocalDate).now()}")
     private LocalDate dateCreate;
     private String status;
 
