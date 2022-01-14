@@ -14,6 +14,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import ru.digitalleague.backend.generationmessgesservice.model.User;
 
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
@@ -27,10 +28,7 @@ public class KafkaProducer {
     private User user;
     private final Logger LOG = LogManager.getLogger(KafkaProducer.class);
 
-    long random = new Random()
-            .longs(50, 5000)
-            .findFirst()
-            .getAsLong();
+
 
     public KafkaProducer(Gson gson, KafkaTemplate<String, String> template, User user) {
         this.gson = gson;
@@ -38,11 +36,11 @@ public class KafkaProducer {
         this.user = user;
     }
 
-    @Scheduled(fixedRate = 50000)
+    @Scheduled(fixedRate = 50000,initialDelay = 500)
     public void sendMessages() throws ExecutionException, InterruptedException {
         String uuid = UUID.randomUUID().toString();
+        user.getOrdersItems().forEach(item -> item.setDateCreate(LocalDate.now()));
         String userToJson = gson.toJson(user);
-        System.out.println(userToJson);
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(TOPIC, "User", userToJson);
         record.headers().add("requestId", uuid.getBytes(StandardCharsets.UTF_8));
         ListenableFuture<SendResult<String, String>> user1 = this.template.send(record);
