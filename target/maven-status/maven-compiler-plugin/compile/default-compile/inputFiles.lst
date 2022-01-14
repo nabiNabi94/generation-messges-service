@@ -2,7 +2,6 @@ C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backe
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\model\OrdersItem.java
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\services\KafkaProducer.java
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\services\KafkaConsumer.java
-C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\controller\KafkaController.java
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\configuration\ProducerFactories.java
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\GenerationMessgesServiceApplication.java
 C:\Users\vnabiev\generation-messges-service\src\main\java\ru\digitalleague\backend\generationmessgesservice\model\User.java

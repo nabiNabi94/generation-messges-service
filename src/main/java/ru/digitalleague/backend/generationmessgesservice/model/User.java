@@ -16,7 +16,6 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "user")
 public class User {
-
     private String userFirstName;
     private String userLastName;
     private List<OrdersItem> ordersItems;
