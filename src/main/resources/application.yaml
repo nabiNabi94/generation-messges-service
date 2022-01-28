@@ -1,7 +1,8 @@
-server:
-  port: 8080
+
 spring:
   kafka:
+    template:
+      default-topic: vn-project-out
     consumer:
       group-id: "my-gro"
       auto-offset-reset: earliest
@@ -31,5 +32,5 @@ User:
   - uuid: 2253a62c-d25f-41c4-8bb5-8ea9f39b3bb9
     cost: 2300
     status: confirmed
-range:
-  time: 15000
+
+topicsIn: vn-project-in

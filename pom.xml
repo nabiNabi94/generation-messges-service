@@ -88,6 +88,11 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.14</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
