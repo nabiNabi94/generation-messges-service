@@ -34,3 +34,5 @@ User:
     status: confirmed
 
 topicsIn: vn-project-in
+server:
+  port: 8080

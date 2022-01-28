@@ -41,7 +41,7 @@ services:
   generator:
     image: generationapp
     build:
-      context: https://github.com/nabiNabi94/generation-messges-service.git
+      context: https://github.com/nabiNabi94/generation-messges-service.git#devolopment
       dockerfile: Dockerfile
     container_name: generator
     networks:
@@ -52,7 +52,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     ports:
-      - "8000:8080"
+      - "8080:8080"
     restart: always
     depends_on:
       - db

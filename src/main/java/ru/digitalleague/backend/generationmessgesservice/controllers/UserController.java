@@ -18,7 +18,7 @@ public class UserController {
     private KafkaProducer kafkaProducer;
     private KafkaConsumer kafkaConsumer;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<User>chekOrdersUser(@RequestBody User user) throws ExecutionException, InterruptedException {
         kafkaProducer.sendMessages(user);
        return ResponseEntity.ok().body(kafkaConsumer.getAnswer());
