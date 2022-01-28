@@ -1,3 +1,4 @@
+ru\digitalleague\backend\generationmessgesservice\controllers\UserController.class
 ru\digitalleague\backend\generationmessgesservice\GenerationMessgesServiceApplication.class
 ru\digitalleague\backend\generationmessgesservice\configuration\ConsumerFactories.class
 ru\digitalleague\backend\generationmessgesservice\services\KafkaConsumer.class

@@ -41,7 +41,7 @@ services:
   generator:
     image: generationapp
     build:
-      context: github.com/nabiNabi94/generation-messges-service.git
+      context: https://github.com/nabiNabi94/generation-messges-service.git
       dockerfile: Dockerfile
     container_name: generator
     networks:
